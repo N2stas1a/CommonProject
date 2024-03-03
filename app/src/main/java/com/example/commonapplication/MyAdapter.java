@@ -4,56 +4,53 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 
 import java.util.ArrayList;
 
-public class MyAdapter extends BaseAdapter {
+public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
     private ArrayList<DataClass> dataList;
     private Context context;
-    LayoutInflater layoutInflater;
 
     public MyAdapter(Context context, ArrayList<DataClass> dataList) {
         this.context = context;
         this.dataList = dataList;
     }
 
+    @NonNull
     @Override
-    public int getCount() {
+    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(context).inflate(R.layout.grid_item, parent, false);
+        return new MyViewHolder(view);
+    }
+
+    @Override
+    public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+        DataClass data = dataList.get(position);
+        holder.gridCaption.setText(data.getCaption());
+        Glide.with(context).load(data.getImageURL()).into(holder.gridImage);
+    }
+
+    @Override
+    public int getItemCount() {
         return dataList.size();
     }
 
-    @Override
-    public Object getItem(int i) {
-        return null;
-    }
+    public class MyViewHolder extends RecyclerView.ViewHolder {
+        ImageView gridImage;
+        TextView gridCaption;
 
-    @Override
-    public long getItemId(int i) {
-        return 0;
-    }
-
-    @Override
-    public View getView(int i, View view, ViewGroup viewGroup) {
-        if (layoutInflater == null){
-            layoutInflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        public MyViewHolder(@NonNull View itemView) {
+            super(itemView);
+            gridImage = itemView.findViewById(R.id.gridImage);
+            gridCaption = itemView.findViewById(R.id.gridCaption);
         }
-        if (view == null){
-            view = layoutInflater.inflate(R.layout.grid_item, null);
-        }
-
-        ImageView gridImage = view.findViewById(R.id.gridImage);
-        TextView gridCaption = view.findViewById(R.id.gridCaption);
-
-
-        Glide.with(context).load(dataList.get(i).getImageURL()).into(gridImage);
-        gridCaption.setText(dataList.get(i).getCaption());
-
-        return view;
     }
 }

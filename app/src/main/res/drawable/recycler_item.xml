@@ -19,7 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/recyclerImage"
-            android:src="@drawable/uploadimg"
+            android:src="@drawable/pink"
             android:scaleType="centerCrop"/>
     </androidx.cardview.widget.CardView>
 
