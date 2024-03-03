@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">CommonApplication</string>
+    <string name="app_name">Travel tracker</string>
+    <string name="title_activity_upload_activivty">UploadActivivty</string>
 </resources>
