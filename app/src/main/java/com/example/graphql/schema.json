@@ -1,0 +1,89 @@
+{
+  "Query": {
+    "launches": {
+      "args": {
+        "pageSize": "Int",
+        "after": "String"
+      },
+      "returns": "LaunchConnection!"
+    },
+    "launch": {
+      "args": {
+        "id": "ID!"
+      },
+      "returns": "Launch"
+    },
+    "me": {
+      "returns": "User"
+    },
+    "totalTripsBooked": {
+      "returns": "Int"
+    }
+  },
+  "LaunchConnection": {
+    "cursor": "String!",
+    "hasMore": "Boolean!",
+    "launches": "[Launch]!"
+  },
+  "Launch": {
+    "id": "ID!",
+    "site": "String",
+    "mission": "Mission",
+    "rocket": "Rocket",
+    "isBooked": "Boolean!"
+  },
+  "Mission": {
+    "name": "String",
+    "missionPatch": "String"
+  },
+  "PatchSize": {
+    "SMALL": null,
+    "LARGE": null
+  },
+  "Rocket": {
+    "id": "ID!",
+    "name": "String",
+    "type": "String"
+  },
+  "User": {
+    "id": "ID!",
+    "email": "String!",
+    "profileImage": "String",
+    "trips": "[Launch]!",
+    "token": "String"
+  },
+  "Mutation": {
+    "bookTrips": {
+      "args": {
+        "launchIds": "[ID]!"
+      },
+      "returns": "TripUpdateResponse!"
+    },
+    "cancelTrip": {
+      "args": {
+        "launchId": "ID!"
+      },
+      "returns": "TripUpdateResponse!"
+    },
+    "login": {
+      "args": {
+        "email": "String"
+      },
+      "returns": "User"
+    }
+  },
+  "TripUpdateResponse": {
+    "success": "Boolean!",
+    "message": "String",
+    "launches": "[Launch]"
+  },
+  "Subscription": {
+    "tripsBooked": "Int"
+  },
+  "Upload": "scalar",
+  "schema": {
+    "query": "Query",
+    "mutation": "Mutation",
+    "subscription": "Subscription"
+  }
+}
