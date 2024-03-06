@@ -43,6 +43,7 @@ dependencies {
     implementation 'com.github.bumptech.glide:glide:4.12.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.12.0'
     implementation 'com.apollographql.apollo3:apollo-runtime:3.7.1'
+    implementation 'com.squareup.okhttp3:okhttp:4.9.3'
 }
 
 apollo {
@@ -51,7 +52,7 @@ apollo {
 
         introspection {
             endpointUrl.set("https://apollo-fullstack-tutorial.herokuapp.com/graphql")
-            schemaFile.set(file("src/main/java/com/example/graphql/schema.json"))
+            schemaFile.set(file("src/main/java/com/example/graphql/instrospectionSchema.json"))
         }
     }
 }
