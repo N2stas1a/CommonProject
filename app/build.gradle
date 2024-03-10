@@ -44,15 +44,18 @@ dependencies {
     annotationProcessor 'com.github.bumptech.glide:compiler:4.12.0'
     implementation 'com.apollographql.apollo3:apollo-runtime:3.7.1'
     implementation 'com.squareup.okhttp3:okhttp:4.9.3'
+    implementation 'com.apollographql.apollo:apollo-coroutines-support:2.5.9'
 }
+
+import com.apollographql.apollo3.gradle.internal.ApolloDownloadSchemaTask
 
 apollo {
-    service("MemoryLeakGraphQL") {
+    tasks.create("downloadSchema", ApolloDownloadSchemaTask) {
+//        service("MemoryLeakGraphQL")
         packageName.set("com.example.graphql")
-
-        introspection {
-            endpointUrl.set("https://apollo-fullstack-tutorial.herokuapp.com/graphql")
-            schemaFile.set(file("src/main/java/com/example/graphql/instrospectionSchema.json"))
+            introspection {
+                endpointUrl.set("https://apollo-fullstack-tutorial.herokuapp.com/graphql")
+                schemaFile.set(file("app/src/main/java/com/example/graphql/schema.json"))
+            }
         }
     }
-}
