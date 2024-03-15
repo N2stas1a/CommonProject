@@ -1,4 +1,11 @@
-#query FindCountriesOfAContinent($code:ID!){
+#query GetContinents {
+#    continents {
+#        continentCode: code
+#        continentName: name
+#    }
+#}
+
+#query FindCountriesOfAContinent($code: ID!) {
 #    continent(code: $code) {
 #        countries {
 #            name
