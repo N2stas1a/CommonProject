@@ -18,6 +18,16 @@
         app:tint = "@color/white"
         android:src="@drawable/baseline_add_to_photos_24" />
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:id="@+id/hruko"
+        android:layout_margin="40dp"
+        android:backgroundTint="@color/lavender"
+        app:tint = "@color/white"
+        android:src="@drawable/baseline_currency_exchange_24"/>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"

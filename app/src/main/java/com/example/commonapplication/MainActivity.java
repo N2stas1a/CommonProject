@@ -21,6 +21,7 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     FloatingActionButton fab;
+    FloatingActionButton hruko;
     private RecyclerView recyclerView;
     private ArrayList<DataClass> dataList;
     private MyAdapter adapter;
@@ -30,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         fab = findViewById(R.id.fab);
+        hruko = findViewById(R.id.hruko);
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -53,6 +55,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, UploadActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        hruko.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this,FirstFragment.class);
                 startActivity(intent);
                 finish();
             }
