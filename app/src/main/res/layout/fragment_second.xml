@@ -12,83 +12,147 @@
         android:padding="12dp">
 
         <TextView
-            android:id="@+id/textName"
+            android:id="@+id/curName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="ModName"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="16dp"
+            android:text="curName"
             android:textColor="#000"
             android:textSize="20sp"
             android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/curCode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="curCode"
+            android:textColor="#000"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginStart="180dp"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/textSym"
+            android:id="@+id/curDateStart"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="file"
+            android:layout_marginStart="180dp"
+            android:layout_marginTop="64dp"
+            android:text="curDateStart"
             android:textColor="#000"
-            android:textSize="15sp"
-            app:layout_constraintStart_toEndOf="@+id/textName"
-            app:layout_constraintTop_toTopOf="@+id/textName" />
-
-        <TextView
-            android:id="@+id/textChange"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
-            android:layout_marginTop="80dp"
-            android:text="author"
-            android:textColor="#000"
-            android:textSize="15sp"
+            android:textSize="20sp"
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textName" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/textPercent"
+            android:id="@+id/curID"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="80dp"
-            android:text="%"
+            android:text="curID"
             android:textColor="#000"
-            android:textSize="15sp"
-            app:layout_constraintStart_toEndOf="@+id/textChange"
-            app:layout_constraintTop_toBottomOf="@+id/textName" />
-
-        <TextView
-            android:id="@+id/textPrice"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="80dp"
-            android:text="author"
-            android:textColor="#000"
-            android:textSize="15sp"
-            app:layout_constraintEnd_toStartOf="@+id/textDollar"
-            app:layout_constraintTop_toBottomOf="@+id/textName" />
-
-        <TextView
-            android:id="@+id/textDollar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="80dp"
-            android:text="$"
-            android:textColor="#000"
-            android:textSize="15sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textName" />
-
-        <TextView
-            android:id="@+id/textLink"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
-            android:layout_marginTop="80dp"
-            android:text="https://stackoverflow.com/questions/6763111/how-to-change-color-of-textview-hyperlink"
-            android:textSize="15sp"
-            android:autoLink="web"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginStart="320dp"
+            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textChange" />
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/curNameBel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="curNameBel"
+            android:textColor="#000"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="62dp" />
+
+        <TextView
+            android:id="@+id/curNameEng"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="curNameEng"
+            android:textColor="#000"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="112dp" />
+
+        <TextView
+            android:id="@+id/curDateEnd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="180dp"
+            android:layout_marginTop="115dp"
+            android:text="curDateEnd"
+            android:textColor="#000"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/CurNameMulti"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cur_NameMulti"
+            android:textColor="#000"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="185dp" />
+
+        <TextView
+            android:id="@+id/CurNameBelMulti"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="CurNameBelMulti"
+            android:textColor="#000"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="240dp" />
+
+        <TextView
+            android:id="@+id/curAbbreviation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="curAbbreviation"
+            android:textColor="#000"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            tools:layout_editor_absoluteX="211dp"
+            tools:layout_editor_absoluteY="245dp" />
+        
+        <TextView
+            android:id="@+id/curPeriodicity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="curPeriodicity"
+            android:textColor="#000"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            tools:layout_editor_absoluteX="119dp"
+            tools:layout_editor_absoluteY="310dp" />
+
+        <TextView
+            android:id="@+id/CurNameEngMulti"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="CurNameEngMulti"
+            android:textColor="#000"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            tools:layout_editor_absoluteX="207dp"
+            tools:layout_editor_absoluteY="184dp" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

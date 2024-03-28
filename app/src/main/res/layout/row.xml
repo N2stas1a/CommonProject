@@ -17,10 +17,10 @@
             android:padding="12dp">
 
             <TextView
-                android:id="@+id/textName"
+                android:id="@+id/curName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="ModName"
+                android:text="curName"
                 android:textColor="#000"
                 android:textSize="20sp"
                 android:textStyle="bold"
@@ -29,36 +29,26 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/textSym"
+                android:id="@+id/curID"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="file"
+                android:text="curID"
                 android:textColor="#000"
                 android:textSize="15sp"
-                app:layout_constraintStart_toEndOf="@+id/textName"
+                app:layout_constraintStart_toEndOf="@+id/curName"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/textPrice"
+                android:id="@+id/curAbbreviation"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="file"
+                android:text="curAbbreviation"
                 android:textColor="#000"
                 android:textSize="15sp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/textDollar"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/textDollar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="$"
-                android:textColor="#000"
-                android:textSize="15sp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.516"
+                tools:layout_editor_absoluteX="275dp" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 </LinearLayout>

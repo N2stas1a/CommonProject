@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.view.View;
 
@@ -26,10 +27,19 @@ public class MainActivity extends AppCompatActivity {
     private ArrayList<DataClass> dataList;
     private MyAdapter adapter;
     final private DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Images");
+
+    MyBroadcastReceiver receiver = new MyBroadcastReceiver();
+
+    IntentFilter filter = new IntentFilter();
+filter.addAction("android.intent.action.SOME_ACTION");
+
+    getContext().registerReceiver(receiver, filter);
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        getSupportFragmentManager().beginTransaction().add(R.id.fragmentContainerView,new FirstFragment(getSupportFragmentManager())).commit();
         fab = findViewById(R.id.fab);
         hruko = findViewById(R.id.hruko);
         recyclerView = findViewById(R.id.recyclerView);
