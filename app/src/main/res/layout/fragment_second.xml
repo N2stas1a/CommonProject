@@ -80,6 +80,17 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/Cur_Name_Bel" />
 
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="386dp"
+            android:layout_height="402dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="84dp"
+            android:src="@drawable/currencyexchange"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>
