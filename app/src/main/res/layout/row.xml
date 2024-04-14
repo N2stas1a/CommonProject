@@ -14,41 +14,46 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@color/white"
             android:padding="12dp">
 
             <TextView
-                android:id="@+id/curName"
+                android:id="@+id/Сur_Name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="60dp"
                 android:text="curName"
                 android:textColor="#000"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.375" />
+
+            <TextView
+                android:id="@+id/Сur_Abbreviation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="4dp"
+                android:text="Сur_Abbreviation"
+                android:textColor="#000"
+                android:textSize="15sp"
+                app:layout_constraintStart_toEndOf="@+id/Сur_Name"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/curID"
+                android:id="@+id/Cur_ID"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="curID"
                 android:textColor="#000"
                 android:textSize="15sp"
-                app:layout_constraintStart_toEndOf="@+id/curName"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <TextView
-                android:id="@+id/curAbbreviation"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="curAbbreviation"
-                android:textColor="#000"
-                android:textSize="15sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.516"
-                tools:layout_editor_absoluteX="275dp" />
+                app:layout_constraintVertical_bias="0.387"
+                tools:layout_editor_absoluteX="0dp" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 </LinearLayout>

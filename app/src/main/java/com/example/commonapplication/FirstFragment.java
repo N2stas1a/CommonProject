@@ -36,11 +36,11 @@ public class FirstFragment extends Fragment {
     private RecyclerView recyclerView;
     private CustomAdapter customAdapter;
 
-    ArrayList<String> Name = new ArrayList<>(),
-            Abbreviation = new ArrayList<>(),
-            Usage = new ArrayList<>();
+    ArrayList<String> Cur_Name = new ArrayList<>(),
+            Cur_Abbreviation = new ArrayList<>(),
+            Cur_ID = new ArrayList<>();
 
-    public FirstFragment(FragmentManager supportFragmentManager) {
+    public FirstFragment() {
 
     }
 
@@ -52,14 +52,9 @@ public class FirstFragment extends Fragment {
         successful = Toast.makeText(requireContext(), "Ok", Toast.LENGTH_SHORT);
         failed = Toast.makeText(requireContext(), "Fail", Toast.LENGTH_SHORT);
         recyclerView = view.findViewById(R.id.recyclerView);
-        rButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                jsonParse();
-            }
-        });
+        rButton.setOnClickListener(view1 -> jsonParse());
         jsonParse();
-        customAdapter = new CustomAdapter(requireContext(), Name, Usage, Abbreviation);
+        customAdapter = new CustomAdapter(requireContext(), Cur_Name, Cur_ID, Cur_Abbreviation, requireActivity().getSupportFragmentManager());
         recyclerView.setAdapter(customAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
     }
@@ -77,14 +72,14 @@ public class FirstFragment extends Fragment {
             @Override
             public void onResponse(JSONArray response) {
                 try {
-                    Name.clear();
-                    Usage.clear();
-                    Abbreviation.clear();
+                    Cur_Name.clear();
+                    Cur_ID.clear();
+                    Cur_Abbreviation.clear();
                     for (int i = 0; i < response.length(); i++) {
                         JSONObject currency = response.getJSONObject(i);
-                        Name.add(currency.getString("CurName"));
-                        Usage.add(currency.getString("CurAbbreviation"));
-                        Abbreviation.add(currency.getString("CurScale"));
+                        Cur_Name.add(currency.getString("Cur_Name"));
+                        Cur_ID.add(currency.getString("Cur_ID"));
+                        Cur_Abbreviation.add(currency.getString("Cur_Abbreviation"));
                     }
                     successful.show();
                     customAdapter.notifyDataSetChanged();

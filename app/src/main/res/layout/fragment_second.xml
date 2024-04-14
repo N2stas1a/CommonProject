@@ -1,10 +1,9 @@
-<?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".SecondFragment">
+    android:background="@color/white">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -12,147 +11,74 @@
         android:padding="12dp">
 
         <TextView
-            android:id="@+id/curName"
+            android:id="@+id/Cur_ID"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
-            android:layout_marginTop="16dp"
-            android:text="curName"
+            android:text="Cur_ID"
             android:textColor="#000"
             android:textSize="20sp"
-            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/curCode"
+            android:id="@+id/Cur_ParentID"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="curCode"
+            android:text="Cur_ParentID"
             android:textColor="#000"
             android:textSize="20sp"
-            android:textStyle="bold"
-            android:layout_marginStart="180dp"
-            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/Cur_ID" />
 
         <TextView
-            android:id="@+id/curDateStart"
+            android:id="@+id/Cur_Code"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="180dp"
-            android:layout_marginTop="64dp"
-            android:text="curDateStart"
+            android:text="Cur_Code"
             android:textColor="#000"
             android:textSize="20sp"
-            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/Cur_ParentID" />
 
         <TextView
-            android:id="@+id/curID"
+            android:id="@+id/Cur_Abbreviation"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="curID"
+            android:text="Cur_Abbreviation"
             android:textColor="#000"
             android:textSize="20sp"
-            android:textStyle="bold"
-            android:layout_marginStart="320dp"
-            app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/Cur_Code" />
 
         <TextView
-            android:id="@+id/curNameBel"
+            android:id="@+id/Cur_Name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="curNameBel"
+            android:text="Cur_Name"
             android:textColor="#000"
             android:textSize="20sp"
-            android:textStyle="bold"
-            tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="62dp" />
-
-        <TextView
-            android:id="@+id/curNameEng"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="curNameEng"
-            android:textColor="#000"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="112dp" />
-
-        <TextView
-            android:id="@+id/curDateEnd"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="180dp"
-            android:layout_marginTop="115dp"
-            android:text="curDateEnd"
-            android:textColor="#000"
-            android:textSize="20sp"
-            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@id/Cur_Abbreviation" />
 
         <TextView
-            android:id="@+id/CurNameMulti"
+            android:id="@+id/Cur_Name_Bel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Cur_NameMulti"
+            android:text="Cur_Name_Bel"
             android:textColor="#000"
             android:textSize="20sp"
-            android:textStyle="bold"
-            tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="185dp" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/Cur_Name" />
 
         <TextView
-            android:id="@+id/CurNameBelMulti"
+            android:id="@+id/Cur_Name_Eng"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="CurNameBelMulti"
+            android:text="Cur_Name_Eng"
             android:textColor="#000"
             android:textSize="20sp"
-            android:textStyle="bold"
-            tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="240dp" />
-
-        <TextView
-            android:id="@+id/curAbbreviation"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="curAbbreviation"
-            android:textColor="#000"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            tools:layout_editor_absoluteX="211dp"
-            tools:layout_editor_absoluteY="245dp" />
-        
-        <TextView
-            android:id="@+id/curPeriodicity"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="curPeriodicity"
-            android:textColor="#000"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            tools:layout_editor_absoluteX="119dp"
-            tools:layout_editor_absoluteY="310dp" />
-
-        <TextView
-            android:id="@+id/CurNameEngMulti"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="CurNameEngMulti"
-            android:textColor="#000"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            tools:layout_editor_absoluteX="207dp"
-            tools:layout_editor_absoluteY="184dp" />
-
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/Cur_Name_Bel" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

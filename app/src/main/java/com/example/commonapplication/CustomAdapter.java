@@ -17,15 +17,15 @@ import java.util.ArrayList;
 public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHolder> {
 
     private Context context;
-    private ArrayList<String> Name, Usage, Abbreviation;
+    private ArrayList<String> Cur_Name, Cur_ID, Cur_Abbreviation;
     private FragmentManager fragmentManager;
     private SecondFragment secondFragment = new SecondFragment();
 
-    public CustomAdapter(Context context, ArrayList<String> name, ArrayList<String> usage, ArrayList<String> abbreviation) {
+    public CustomAdapter(Context context, ArrayList<String> name, ArrayList<String> id, ArrayList<String> abbreviation, FragmentManager fragmentManager) {
         this.context = context;
-        this.Name = name;
-        this.Usage = usage;
-        this.Abbreviation = abbreviation;
+        this.Cur_Name = name;
+        this.Cur_ID = id;
+        this.Cur_Abbreviation = abbreviation;
         this.fragmentManager = fragmentManager;
     }
 
@@ -39,9 +39,10 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        holder.TextName.setText(Name.get(position));
-        holder.TextUsage.setText(Usage.get(position));
-        holder.TextAbbreviation.setText(Abbreviation.get(position));
+        holder.TextName.setText(Cur_Name.get(position));
+        holder.TextUsage.setText(Cur_ID.get(position));
+        holder.TextAbbreviation.setText(Cur_Abbreviation.get(position));
+
         holder.ROW.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -55,7 +56,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
 
     @Override
     public int getItemCount() {
-        return Name.size();
+        return Cur_Name.size();
     }
 
     public static class MyViewHolder extends RecyclerView.ViewHolder {
@@ -65,9 +66,9 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-            TextName = itemView.findViewById(R.id.curName);
-            TextUsage = itemView.findViewById(R.id.curCode);
-            TextAbbreviation = itemView.findViewById(R.id.curID);
+            TextName = itemView.findViewById(R.id.Сur_Name);
+            TextUsage = itemView.findViewById(R.id.Сur_Abbreviation);
+            TextAbbreviation = itemView.findViewById(R.id.Cur_ID);
             ROW = itemView.findViewById(R.id.row);
         }
     }
