@@ -63,6 +63,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
+                // Обработка ошибок при чтении из Firebase Database
             }
         });
 

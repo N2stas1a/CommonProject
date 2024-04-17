@@ -40,8 +40,6 @@ public class FirstFragment extends Fragment {
             Cur_Abbreviation = new ArrayList<>(),
             Cur_ID = new ArrayList<>();
 
-    ArrayList<String> Cur_ParentID, Cur_Code, Cur_Name_Bel, Cur_Name_Eng;
-
     public FirstFragment() {
 
     }
@@ -56,8 +54,7 @@ public class FirstFragment extends Fragment {
         recyclerView = view.findViewById(R.id.recyclerView);
         rButton.setOnClickListener(view1 -> jsonParse());
         jsonParse();
-        customAdapter = new CustomAdapter(requireContext(), Cur_Name, Cur_ID, Cur_Abbreviation, Cur_ParentID, Cur_Code, Cur_Name_Bel, Cur_Name_Eng, requireActivity().getSupportFragmentManager());
-
+        customAdapter = new CustomAdapter(requireContext(), Cur_Name, Cur_ID, Cur_Abbreviation, requireActivity().getSupportFragmentManager());
         recyclerView.setAdapter(customAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
     }

@@ -2,58 +2,41 @@ package com.example.commonapplication;
 
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
-import android.widget.Toast;
 
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonArrayRequest;
-import com.android.volley.toolbox.JsonObjectRequest;
-import com.android.volley.toolbox.Volley;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.util.ArrayList;
-
+/**
+ * A simple {@link Fragment} subclass.
+ * Use the {@link SecondFragment#newInstance} factory method to
+ * create an instance of this fragment.
+ */
 public class SecondFragment extends Fragment {
 
-    private RequestQueue rQueue;
-
+    // TODO: Rename parameter arguments, choose names that match
+    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
+    // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
 
-    private Toast successful;
-    private Toast failed;
-
-    private TextView
-            Cur_ID,
-            Cur_ParentID,
-            Cur_Code,
-            Cur_Abbreviation,
-            Cur_Name,
-            Cur_Name_Bel,
-            Cur_Name_Eng;
-    private int position = 0;
-
     public SecondFragment() {
+        // Required empty public constructor
     }
 
+    /**
+     * Use this factory method to create a new instance of
+     * this fragment using the provided parameters.
+     *
+     * @param param1 Parameter 1.
+     * @param param2 Parameter 2.
+     * @return A new instance of fragment SecondFragment.
+     */
+    // TODO: Rename and change types and number of parameters
     public static SecondFragment newInstance(String param1, String param2) {
         SecondFragment fragment = new SecondFragment();
         Bundle args = new Bundle();
@@ -72,27 +55,6 @@ public class SecondFragment extends Fragment {
         }
     }
 
-    public void setPosition(int position) {
-        this.position = position;
-    }
-
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        rQueue = Volley.newRequestQueue(view.getContext());
-
-        Toast successful = Toast.makeText(requireContext(), "Ok", Toast.LENGTH_SHORT);
-        failed = Toast.makeText(requireContext(), "Fail", Toast.LENGTH_SHORT);
-        Cur_ID = view.findViewById(R.id.Cur_ID);
-        Cur_ParentID = view.findViewById(R.id.Cur_ParentID);
-        Cur_Code = view.findViewById(R.id.Cur_Code);
-        Cur_Abbreviation = view.findViewById(R.id.Cur_Abbreviation);
-        Cur_Name = view.findViewById(R.id.Cur_Name);
-        Cur_Name_Bel = view.findViewById(R.id.Cur_Name_Bel);
-        Cur_Name_Eng = view.findViewById(R.id.Cur_Name_Eng);
-        jsonParse();
-    }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -100,28 +62,6 @@ public class SecondFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_second, container, false);
     }
 
-    private void jsonParse() {
-        String url = "https://api.nbrb.by/exrates/currencies";
-        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
-            @Override
-            public void onResponse(JSONObject response) {
-                try {
-                    Cur_ID.setText(response.getString("Cur_ID"));
-                    Cur_ParentID.setText(response.getString("Cur_ParentID"));
-                    Cur_Code.setText(response.getString("Cur_Code"));
-                    Cur_Abbreviation.setText(response.getString("Cur_Abbreviation"));
-                    Cur_Name.setText(response.getString("Cur_Name"));
-                    Cur_Name_Bel.setText(response.getString("Cur_Name_Bel"));
-                    Cur_Name_Eng.setText(response.getString("Cur_Name_Eng"));
-                } catch (JSONException e) {
-                    throw new RuntimeException(e);
-                }
-            }
-        }, new Response.ErrorListener() {
-            @Override
-            public void onErrorResponse(VolleyError error) {
-            }
-        });
-        rQueue.add(request);
+    public void setPosition(int adapterPosition) {
     }
 }
