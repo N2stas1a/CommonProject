@@ -1,6 +1,7 @@
 package com.example.commonapplication;
 
 import android.content.Context;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -46,9 +47,15 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
         holder.ROW.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Bundle bundle = new Bundle();
+                TextView curId = (TextView) view.findViewById(R.id.Cur_ID);
+                String curIdString = curId.getText().toString();
+            //    int curIdInt = Integer.parseInt(curIdString);
+                bundle.putString("1",curIdString);
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                 fragmentTransaction.replace(R.id.fragmentContainerView, secondFragment).commit();
                 secondFragment.setPosition(holder.getAdapterPosition());
+                secondFragment.setArguments(bundle);
                 fragmentTransaction.addToBackStack(null);
             }
         });

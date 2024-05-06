@@ -40,7 +40,7 @@ public class SecondFragment extends Fragment {
 
     private Toast successful;
     private Toast failed;
-
+    private String temp;
     private TextView
             Cur_ID,
             Cur_ParentID,
@@ -56,21 +56,17 @@ public class SecondFragment extends Fragment {
 
     public static SecondFragment newInstance(String param1, String param2) {
         SecondFragment fragment = new SecondFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
         return fragment;
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+        Bundle bundle = this.getArguments();
+        if (bundle != null) {
+            temp = bundle.getString("1", null );
         }
-    }
+     }
 
     public void setPosition(int position) {
         this.position = position;
@@ -90,6 +86,7 @@ public class SecondFragment extends Fragment {
         Cur_Name = view.findViewById(R.id.Cur_Name);
         Cur_Name_Bel = view.findViewById(R.id.Cur_Name_Bel);
         Cur_Name_Eng = view.findViewById(R.id.Cur_Name_Eng);
+        //Cur_ID.setText(temp);
         jsonParse();
     }
 
@@ -102,17 +99,24 @@ public class SecondFragment extends Fragment {
 
     private void jsonParse() {
         String url = "https://api.nbrb.by/exrates/currencies";
-        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null, new Response.Listener<JSONObject>() {
+        JsonArrayRequest request = new JsonArrayRequest(Request.Method.GET, url, null, new Response.Listener<JSONArray>() {
             @Override
-            public void onResponse(JSONObject response) {
+            public void onResponse(JSONArray response) {
                 try {
-                    Cur_ID.setText(response.getString("Cur_ID"));
-                    Cur_ParentID.setText(response.getString("Cur_ParentID"));
-                    Cur_Code.setText(response.getString("Cur_Code"));
-                    Cur_Abbreviation.setText(response.getString("Cur_Abbreviation"));
-                    Cur_Name.setText(response.getString("Cur_Name"));
-                    Cur_Name_Bel.setText(response.getString("Cur_Name_Bel"));
-                    Cur_Name_Eng.setText(response.getString("Cur_Name_Eng"));
+                    for (int i = 0; i < response.length(); i++) {
+                        JSONObject currency = response.getJSONObject(i);
+                        String currencyId = currency.getString("Cur_Abbreviation");
+                        if(currencyId.equals(temp)) {
+                            Cur_ID.setText(currency.getString("Cur_ID"));
+                            Cur_ParentID.setText(currency.getString("Cur_ParentID"));
+                            Cur_Code.setText(currency.getString("Cur_Code"));
+                            Cur_Abbreviation.setText(currency.getString("Cur_Abbreviation"));
+                            Cur_Name.setText(currency.getString("Cur_Name"));
+                            Cur_Name_Bel.setText(currency.getString("Cur_Name_Bel"));
+                            Cur_Name_Eng.setText(currency.getString("Cur_Name_Eng"));
+                        }
+                    }
+//
                 } catch (JSONException e) {
                     throw new RuntimeException(e);
                 }
