@@ -11,6 +11,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DataSnapshot;
@@ -32,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
     private MyAdapter adapter;
     final private DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("Images");
 
+    Button showMap;
     private IntentFilter filter = new IntentFilter();
 
     @Override
@@ -42,6 +44,9 @@ public class MainActivity extends AppCompatActivity {
         fab = findViewById(R.id.fab);
         hruko = findViewById(R.id.hruko);
         recyclerView = findViewById(R.id.recyclerView);
+
+        showMap = findViewById(R.id.showMap);
+
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         dataList = new ArrayList<>();
@@ -69,6 +74,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, UploadActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        showMap.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, MapsActivity.class);
                 startActivity(intent);
             }
         });

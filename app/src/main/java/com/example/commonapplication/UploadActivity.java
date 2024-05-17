@@ -54,7 +54,7 @@ public class UploadActivity extends AppCompatActivity {
                     public void onActivityResult(ActivityResult result) {
                         if (result.getResultCode() == Activity.RESULT_OK) {
                             Intent data = result.getData();
-                            imageUri = data.getData(); // Исправлено имя переменной
+                            imageUri = data.getData();
                             uploadImage.setImageURI(imageUri);
                         } else {
                             Toast.makeText(UploadActivity.this, "No image selected", Toast.LENGTH_SHORT).show();
